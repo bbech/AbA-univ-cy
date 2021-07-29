@@ -9,7 +9,7 @@ export default function Card(props: any) {
                 <img
                     src={process.env.PUBLIC_URL + convertToImgUrl(props.character)}
                     alt=" random imgee"
-                    className=" object-cover object-center rounded-lg shadow-md" />
+                    className=" object-cover object-center rounded-lg shadow-md h-screen" style={{"height" : "33rem"}} />
 
                 <div className="relative px-4 -mt-16">
                     <div className="bg-white p-6 rounded-lg shadow-lg">

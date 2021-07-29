@@ -48,8 +48,8 @@ export function convertToImgUrl(name: string) {
         //     return ""
         // case 'Calogrenant':
         //     return ""
-        // case 'Roparzh':
-        //     return ""
+        case 'Roparzh':
+            return "roparzh.jpg"
         // case 'Séli':
         //     return ""
         // case 'Kadoc':
@@ -58,8 +58,8 @@ export function convertToImgUrl(name: string) {
         //     return ""
         // case 'Caius':
         //     return ""
-        // case 'Guethenoc':
-        //     return ""
+        case 'Guethenoc':
+            return "guetno.jpg"
         case 'Le Roi Burgonde':
             return "/roi-burgonde.jpg"
         case 'Loth':
