@@ -38,6 +38,8 @@ export class QuotesService {
     }
 
     addQuote(character: string, quote: any): void {
+        fetch('http://localhost:5001/api/quotes/add')
+            .then(response => response.json());
         this.cacheListQuote.get(character)?.push(quote);
     }
 
