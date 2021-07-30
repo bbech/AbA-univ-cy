@@ -22,7 +22,7 @@ export default function QuoteList(props: any) {
                                             .indexOf(
                                                 props.filter.toUpperCase()
                                             )) >= 0 && (
-                                        <a href="#"
+                                        <a key={item.title} href="#"
                                             className="block bg-white py-3 border-t">
                                             <div className="px-4 py-2 flex  justify-between">
                                                 <span className="text-sm font-semibold text-gray-900">
