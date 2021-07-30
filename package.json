@@ -19,11 +19,23 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "craco start",
-    "start:instrumented": "craco -r @cypress/instrument-cra start",
+    "start": "set BROWSER=NONE && craco start",
     "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "test": "craco test --coverage",
+    "coverage": "react-scripts test --coverage --watchAll",
+    "eject": "react-scripts eject",
+    "start:instrumented": "craco -r @cypress/instrument-cra start",
+    "cypress:run:coverage": "set BROWSER=NONE && start-server-and-test start:instrumented http://localhost:3000 cypress:run",
+    "report:combine:reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/output.json",
+    "report:generate:report": "marge cypress/reports/output.json -f output -o mocha_reports/",
+    "report:copyScreenshots": "cp -r cypress/screenshots mocha_reports || exit 0",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:open:dev": "cypress open --env configFile=dev",
+    "cypress:run:dev": "cypress run --env configFile=dev || exit 0",
+    "precypress:open:dev": "rm -rf cypress/screenshots/* || exit 0",
+    "precypress:run:dev": "rm -rf cypress/screenshots cypress/reports/* mocha_reports/*",
+    "generate:report:dev": "npm run cypress:run:dev & npm run report:combine:reports & npm run report:generate:report & npm run report:copyScreenshots"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +59,40 @@
     "@cypress/instrument-cra": "^1.4.0",
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.36",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7",
+    "start-server-and-test": "1.10.11",
+    "@cypress/code-coverage": "^3.9.9",
+    "@testdeck/mocha": "^0.1.2",
+    "@types/classnames": "~2.3.0",
+    "@types/mocha": "^9.0.0",
+    "cypress": "^8.0.0",
+    "cypress-multi-reporters": "^1.5.0",
+    "faker": "~5.5.3",
+    "mocha": "^9.0.3",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0",
+    "tslint": "~6.1.3",
+    "tslint-react": "~5.0.0",
+    "typescript": "4.3.5",
+    "typescript-tslint-plugin": "~1.0.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": ["html", "lcov"]
+  },
+  "nyc": {
+    "report-dir": "coverage-e2e"
   }
 }
