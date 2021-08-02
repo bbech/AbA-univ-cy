@@ -26,6 +26,7 @@
     "eject": "react-scripts eject",
     "start:instrumented": "craco -r @cypress/instrument-cra start",
     "cypress:run:coverage": "set BROWSER=NONE && start-server-and-test start:instrumented http://localhost:3000 cypress:run || exit 0",
+    "e2e:coverage:report:log": "npx nyc report --reporter=lcov --reporter=text-summary",
     "report:combine:reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/output.json",
     "report:generate:report": "marge cypress/reports/output.json -f output -o mocha_reports/",
     "report:copyScreenshots": "cp -r cypress/screenshots mocha_reports || exit 0",
