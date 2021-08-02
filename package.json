@@ -36,7 +36,7 @@
     "cypress:run:dev": "cypress run --env configFile=dev || exit 0",
     "precypress:open:dev": "rm -rf cypress/screenshots/* || exit 0",
     "precypress:run:dev": "rm -rf cypress/screenshots cypress/reports/* mocha_reports/*",
-    "generate:report:dev": "cypress run --env configFile=dev || exit 0 && npm run report:combine:reports && npm run report:generate:report && npm run report:copyScreenshots"
+    "generate:report:dev": "cypress:run:dev && npm run report:combine:reports && npm run report:generate:report && npm run report:copyScreenshots"
   },
   "eslintConfig": {
     "extends": [
