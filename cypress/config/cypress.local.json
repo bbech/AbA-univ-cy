@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://aba-demo-cy.bech.fr/",
+  "baseUrl": "http://localhost:3000/",
   "env": {
     "username": "test",
     "password": "Password@2020"
