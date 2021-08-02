@@ -95,5 +95,6 @@
   },
   "nyc": {
     "report-dir": "coverage-e2e"
-  }
+  },
+  "proxy": "http://localhost:5001"
 }

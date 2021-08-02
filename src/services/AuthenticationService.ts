@@ -15,7 +15,7 @@ export class AuthenticationService {
     }
 
     logMeIn(username: string, password: string): any {
-        fetch('http://localhost:5001/api/auth')
+        fetch('/api/auth')
             .then(response => response.json());
 
         this.connectedUser = { username }
