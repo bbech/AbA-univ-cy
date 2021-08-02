@@ -11,7 +11,7 @@ describe('Test Page d\'accueil APSIDE .com', () => {
         }
     });
 
-    it('Visité /', function() {
+    it('Test du login avec admin', function() {
         // Se rendre sur le path "/"" du site configuré dans ./cypress/config/cypress.{env}.json
         cy.visit('/');
         /* ==== Generated with Cypress Studio ==== */
@@ -25,7 +25,7 @@ describe('Test Page d\'accueil APSIDE .com', () => {
         /* ==== End Cypress Studio ==== */
     });
     
-    it('Visité /', function() {
+    it('Test Selection personnage et rafraichissement List de citation', function() {
         // Se rendre sur le path "/"" du site configuré dans ./cypress/config/cypress.{env}.json
         cy.visit('/');
 
@@ -36,6 +36,17 @@ describe('Test Page d\'accueil APSIDE .com', () => {
         /* ==== End Cypress Studio ==== */
     });
 
+        
+    it('Test Selection personnage puis d\'un second et rafraichissement Liste de citation sur nouveau personnage', function() {
+        // Se rendre sur le path "/"" du site configuré dans ./cypress/config/cypress.{env}.json
+        cy.visit('/');
+
+        /* ==== Generated with Cypress Studio ==== */
+        cy.get(':nth-child(1) > :nth-child(1) > .wrapper > .duration-500 > .object-cover').click();
+        cy.get('.text-gray-900').should('be.visible');
+        cy.get('.text-gray-900').should('have.text', 'Merlin');
+        /* ==== End Cypress Studio ==== */
+    });
 
 
 });
