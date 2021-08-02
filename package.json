@@ -22,7 +22,7 @@
     "start": "set BROWSER=NONE && craco start",
     "build": "craco build",
     "test": "craco test --coverage",
-    "coverage": "react-scripts test --coverage --watchAll=false",
+    "coverage": "react-scripts test --coverage --watchAll=false --silent",
     "eject": "react-scripts eject",
     "start:instrumented": "craco -r @cypress/instrument-cra start",
     "cypress:run:coverage": "set BROWSER=NONE && start-server-and-test start:instrumented http://localhost:3000 cypress:run",
