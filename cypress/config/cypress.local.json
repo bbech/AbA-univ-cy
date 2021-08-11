@@ -1,7 +1,7 @@
 {
   "baseUrl": "http://localhost:3000/",
   "env": {
-    "username": "test",
+    "username": "admin",
     "password": "Password@2020"
   }
 }

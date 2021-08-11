@@ -1,5 +1,6 @@
+/// <reference types="Cypress"/>
 
-describe('Test Page d\'accueil APSIDE .com', () => {
+describe('Test Page d\'accueil Kaamlott SoundBoard', () => {
     beforeEach(() => {
         // ICI faire les action redondante à chaque test
         // Exemple authentification avant chaque test
@@ -17,9 +18,9 @@ describe('Test Page d\'accueil APSIDE .com', () => {
         /* ==== Generated with Cypress Studio ==== */
         cy.get('.inline-flex').click();
         cy.get('[placeholder="Email or Phone Number"]').clear();
-        cy.get('[placeholder="Email or Phone Number"]').type('admin');
+        cy.get('[placeholder="Email or Phone Number"]').type(Cypress.env('username'));
         cy.get('[placeholder="Pasword"]').clear();
-        cy.get('[placeholder="Pasword"]').type('admin');
+        cy.get('[placeholder="Pasword"]').type(Cypress.env('password'));
         cy.get('.bg-gray-50 > .border-transparent').click();
         cy.get('.pl-3').should('have.text', 'Bonjour admin');
         /* ==== End Cypress Studio ==== */
