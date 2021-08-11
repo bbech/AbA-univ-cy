@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://aba-demo-cy.bech.fr/",
+  "env": {
+    "username": "test",
+    "password": "Password@2020"
+  }
+}
