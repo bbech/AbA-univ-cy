@@ -22,7 +22,7 @@ describe('Test Page d\'accueil Kaamlott SoundBoard', () => {
         cy.get('[placeholder="Pasword"]').clear();
         cy.get('[placeholder="Pasword"]').type(Cypress.env('password'));
         cy.get('.bg-gray-50 > .border-transparent').click();
-        cy.get('.pl-3').should('have.text', 'Bonjour admin');
+        cy.get('.pl-3').should('have.text', `Bonjour ${Cypress.env('username')}`);
         /* ==== End Cypress Studio ==== */
     });
     
