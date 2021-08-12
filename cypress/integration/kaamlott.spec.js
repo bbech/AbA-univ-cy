@@ -31,7 +31,7 @@ describe('Test Page d\'accueil Kaamlott SoundBoard', () => {
         /* ==== End Cypress Studio ==== */
     });
 
-    it.only('Test Ajout d\'une citation au personnage Merlin', function() {
+    it('Test Ajout d\'une citation au personnage Merlin', function() {
         // Se rendre sur le path "/"" du site configuré dans ./cypress/config/cypress.{env}.json
         /* ==== Generated with Cypress Studio ==== */
         cy.get(':nth-child(1) > :nth-child(1) > .wrapper > .duration-500 > .object-cover').click();
