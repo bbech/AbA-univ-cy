@@ -1,3 +1,4 @@
+/// <reference types="Cypress"/>
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +24,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('logMeIn', () => {
+    cy.get('.inline-flex').click();
+    cy.get('[placeholder="Email or Phone Number"]').clear();
+    cy.get('[placeholder="Email or Phone Number"]').type(Cypress.env('username'));
+    cy.get('[placeholder="Pasword"]').clear();
+    cy.get('[placeholder="Pasword"]').type(Cypress.env('password'));
+    cy.get('.bg-gray-50 > .border-transparent').click();
+});
+
+declare namespace Cypress {
+    interface Chainable {
+        logMeIn: (token: string) => Cypress.Chainable<any>;
+    }
+}

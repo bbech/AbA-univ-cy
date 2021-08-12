@@ -22,8 +22,8 @@ export default function ModalAddQuotes(props: any) {
                             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
                                 Livre / Titre épisode
                             </label>
-                            <input onChange={$event => livreEpisode = $event.target.value}
-                            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email"/>
+                            <input onChange={$event => livreEpisode = $event.target.value} data-cy="livre_episode"
+                            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="livre" type="text"/>
                             </div>
                         </div>
                         <div className="flex flex-wrap -mx-3 mb-6">
@@ -32,7 +32,7 @@ export default function ModalAddQuotes(props: any) {
                                 Fichier audio mp3
                             </label>
                             <input onChange={$event => file = $event.target.value}
-                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email"/>
+                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="citation" type="text"/>
                             <p className="text-gray-600 text-xs italic">Some tips - as long as needed</p>
                             </div>
                         </div>
