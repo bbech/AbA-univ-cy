@@ -6,7 +6,8 @@ describe('Test Page d\'accueil Kaamlott SoundBoard', () => {
         // ICI faire les action redondante à chaque test
         // Exemple authentification avant chaque test
         if (Cypress.env('configFile')) {
-            return;
+            // ici on ne declare que les appel API qui on besoin d'un alias sans la fixture
+            cy.intercept('GET', '/api/auth*').as('authApi');
         } else {
             cy.intercept('GET', '/api/auth*', { fixture: 'auth.json' }).as('authApi');
             cy.intercept('GET', '/api/sounds.98d7c898.json', { fixture: 'sounds.98d7c898.json' });
