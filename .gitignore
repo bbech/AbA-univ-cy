@@ -73,3 +73,5 @@ cypress/screenshots/
 cypress/videos/
 cypress/reports/
 mocha_reports/
+
+.env

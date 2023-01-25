@@ -1,0 +1,61 @@
+name: Develop Build and Deploy
+on:
+  push:
+    branches: 
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      API_DEV_URL: https://api.aws-demo.bech.fr
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Replace Env vars
+        uses: falnyr/replace-env-vars-action@master
+        with:
+          filename: ./.env.build
+      - name: Install dependencies
+        run: npm install    
+      - name: Test
+        run: npm run test:ci
+        env:
+          CI: true
+      - name: Generate build
+        run: npm run build:ci
+        
+      # Share artifact inside workflow
+      - name: Share artifact inside workflow
+        uses: actions/upload-artifact@v3
+        with:
+          name: react-github-actions-build
+          path: build
+          retention-days: 7
+
+  deploy:
+    runs-on: ubuntu-latest
+    # When application is successfully tested and build has been generated
+    # Then we can start with deployment
+    needs: build
+    steps:
+      # Download previously shared build
+      - name: Get artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: react-github-actions-build
+      # Set the credentials from repository settings/secrets
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+      # Copy the files from build folder to the S3 bucket
+      - name: Deploy to S3
+        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }}
+        working-directory: react-github-actions-build
