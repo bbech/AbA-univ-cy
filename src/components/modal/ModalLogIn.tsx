@@ -19,7 +19,7 @@ export default function ModalLogIn(props: any) {
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <form className="w-80 p-4 flex flex-col bg-white rounded-lg">
                     <input type="text" placeholder="Email or Phone Number" onChange={$event => username = $event.target.value} className="mb-6 py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 ring-cyan-500" />
-                    <input type="text" placeholder="Pasword" onChange={$event => password = $event.target.value} className="mb-6 py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 ring-cyan-500" />
+                    <input type="password" placeholder="Pasword" onChange={$event => password = $event.target.value} className="mb-6 py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 ring-cyan-500" />
                     </form>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">

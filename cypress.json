@@ -1,0 +1,13 @@
+{
+  "chromeWebSecurity": false,
+  "viewportWidth": 1280,
+  "viewportHeight": 770,
+  "video": false,
+  "ignoreErrors": ["ResizeObserver"],
+  "requestTimeout": 13000,
+  "reporter": "cypress-multi-reporters",
+  "experimentalStudio": true,
+  "reporterOptions": {
+    "configFile": "reporterOptions.json"
+  }
+}

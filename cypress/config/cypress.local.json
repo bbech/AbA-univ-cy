@@ -1,0 +1,9 @@
+{
+  "baseUrl": "http://localhost:3000/",
+  "env": {
+    "username": "admin",
+    "password": "Password@2020"
+  }
+}
+
+CYPRESS_username

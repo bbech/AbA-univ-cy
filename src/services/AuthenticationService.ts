@@ -15,7 +15,7 @@ export class AuthenticationService {
     }
 
     logMeIn(username: string, password: string): any {
-        fetch('http://localhost:5001/api/auth')
+        fetch(`${process.env.REACT_APP_API_URL}/api/auth`)
             .then(response => response.json());
 
         this.connectedUser = { username }
