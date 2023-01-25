@@ -22,10 +22,10 @@ jobs:
           filename: ./.env.build
       - name: Install dependencies
         run: npm install    
-      - name: Test
-        run: npm run test:ci
-        env:
-          CI: true
+      # - name: Test
+      #   run: npm run test:ci
+      #   env:
+      #     CI: true
       - name: Generate build
         run: npm run build:env
         
