@@ -18,7 +18,7 @@ function App() {
     const [search, setSearch] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [showModalAdd, setShowModalAdd] = useState(false);
-    const [showSuccess, setShowSuccess] = useState(false);
+    const [showSuccess] = useState(false);
     const [selectedCharacter, setSelectedCharacter] = useState('');
 
     function handleAdd(quotesCharacter: any) {
