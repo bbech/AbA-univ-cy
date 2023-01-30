@@ -12,7 +12,7 @@ export default function PersoList(props: any) {
         quotesService.fetchAll().then(data => {
             if(data.size > 0) setlist(data);
         });
-    }, [list]);
+    });
 
     
     return (
