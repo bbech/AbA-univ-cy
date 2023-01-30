@@ -9,8 +9,10 @@ export default function PersoList(props: any) {
     const [list, setlist] = useState(new Map<string, Array<any>>());
 
     useEffect(() => { 
-        quotesService.fetchAll().then(data => setlist(data));
-    });
+        quotesService.fetchAll().then(data => {
+            if(data.size > 0) setlist(data);
+        });
+    }, [list]);
 
     
     return (
