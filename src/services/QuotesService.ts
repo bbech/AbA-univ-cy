@@ -20,7 +20,11 @@ export class QuotesService {
                 resolve(this.cacheListQuote);
             });
         } else {
-            return fetch(`${process.env.REACT_APP_API_URL}/api/sounds.98d7c898.json`)
+            return fetch(`${process.env.REACT_APP_API_URL}/quotes`, {
+                headers: {
+                    'Authorization': 'Bearer my-api-key'
+                  }
+            })
             .then(response => response.json())
             .then(data => data.reduce((map: Map<string, Array<any>>, obj: any) => {
                 if(map.get(obj.character)) {
@@ -38,7 +42,14 @@ export class QuotesService {
     }
 
     addQuote(character: string, quote: any): void {
-        fetch(`${process.env.REACT_APP_API_URL}/api/quotes/add`)
+        fetch(`${process.env.REACT_APP_API_URL}/quotes`, {
+            method: 'POST', 
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer my-api-key'
+            }, 
+            body: JSON.stringify(quote)
+        })
             .then(response => response.json());
         this.cacheListQuote.get(character)?.push(quote);
     }
